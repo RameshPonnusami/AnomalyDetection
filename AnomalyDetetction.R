@@ -7,8 +7,8 @@
 
 
 
-		dbConnection <- dbConnect(MariaDB(),user='root', password='password', dbname='rtios', host='127.0.0.1')
-		filterZoneQuery <- 'select created_time,load_mwh,zone from miso_hourly_load where zone= ? ';
+		dbConnection <- dbConnect(MariaDB(),user='root', password='password', dbname='r', host='127.0.0.1')
+		filterZoneQuery <- 'select created_time,load_mwh,zone from tablename where zone= ? ';
 		resultSet <- dbSendQuery(dbConnection, filterZoneQuery, list('Central'));
 		dataSource <- dbFetch(resultSet);
 		dataSource<- group_by(dataSource,zone);
